@@ -1,4 +1,4 @@
-package com.github.henriquealves4624.study_apir;
+package com.github.acnaweb.study_apir;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
