@@ -1,4 +1,4 @@
-package com.github.acnaweb.study_apir.service;
+package com.github.henriquealves4624.study_apir.service;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -7,9 +7,9 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.github.acnaweb.study_apir.dto.ProductRequestCreate;
-import com.github.acnaweb.study_apir.dto.ProductRequestUpdate;
-import com.github.acnaweb.study_apir.model.Product;
+import com.github.henriquealves4624.study_apir.dto.ProductRequestCreate;
+import com.github.henriquealves4624.study_apir.dto.ProductRequestUpdate;
+import com.github.henriquealves4624.study_apir.model.Product;
 
 @Service
 public class ProductService {

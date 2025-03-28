@@ -1,4 +1,4 @@
-package com.github.acnaweb.study_apir.dto;
+package com.github.henriquealves4624.study_apir.dto;
 
 public class ProductRequestCreate {    
     private String nome;
