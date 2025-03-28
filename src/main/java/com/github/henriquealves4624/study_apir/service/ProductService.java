@@ -5,27 +5,29 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.github.henriquealves4624.study_apir.dto.ProductRequestCreate;
 import com.github.henriquealves4624.study_apir.dto.ProductRequestUpdate;
 import com.github.henriquealves4624.study_apir.model.Product;
+import com.github.henriquealves4624.study_apir.repository.ProductRepository;
 
 @Service
 public class ProductService {
-    private List<Product> products = new ArrayList<>();
-    private Long sequence = 1L;
+
+    @Autowired
+    private ProductRepository productRepository;
 
     private static final BigDecimal VALOR_PADRAO 
         = new BigDecimal(2000);
 
     public Product createProduct(ProductRequestCreate dto) {
         Product product = new Product();        
-        product.setId(sequence++);
         product.setNome(dto.getNome());
         product.setValor(VALOR_PADRAO);
-        products.add(product);
-        return product;
+
+        return productRepository.save(product);
     }
 
     public Optional<Product> getProductById(Long id) {

@@ -1,7 +1,6 @@
 package com.github.henriquealves4624.study_apir.dto;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
 import com.github.henriquealves4624.study_apir.model.Product;
 
