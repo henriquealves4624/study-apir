@@ -1,7 +1,6 @@
 package com.github.henriquealves4624.study_apir.controller;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.henriquealves4624.study_apir.dto.ProductRequestCreate;
 import com.github.henriquealves4624.study_apir.dto.ProductRequestUpdate;
 import com.github.henriquealves4624.study_apir.dto.ProductResponse;
-import com.github.henriquealves4624.study_apir.model.Product;
 import com.github.henriquealves4624.study_apir.service.ProductService;
 
 @RestController
@@ -28,13 +26,12 @@ public class ControllerProduct {
     @Autowired
     private ProductService productService;
 
-
     @PostMapping
     public ResponseEntity<ProductResponse> create(
-        @RequestBody ProductRequestCreate dto) {
+            @RequestBody ProductRequestCreate dto) {
 
         return ResponseEntity.status(201).body(
-            new ProductResponse().toDto(productService.createProduct(dto)));
+                new ProductResponse().toDto(productService.createProduct(dto)));
     }
 
     @DeleteMapping("/{id}")
@@ -70,7 +67,7 @@ public class ControllerProduct {
         List<ProductResponse> response = productService.getAll().stream()
                 .map(p -> new ProductResponse().toDto(p))
                 .collect(Collectors.toList());
-        return ResponseEntity.ok(null);
+        return ResponseEntity.ok(response);
 
     }
 }
