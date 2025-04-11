@@ -1,0 +1,31 @@
+Contrato: criar pedidos
+POST /pedidos
+{
+	"status": "ABERTO"
+	"items": [
+			{
+			"produto_id": 50,
+			"valor": 10.50,
+			"quantidade": 2},
+			{			
+			"produto_id": 99,
+			"valor": 10.50,
+			"quantidade": 2}
+		]
+}
+
+
+
+GET /pedidos/{id} (endpoint/rota) Ex: /pedidos/150
+payload (json que representa o dado response)
+{ -- PedidoResponse
+	"id": 150,
+	"status": "",
+	"items": [ -- ItemResponse
+		{
+			"id": 1,
+			"produto_nome": "Uva",
+			"valor": 10.50,
+			"quantidade": 2}
+		]
+}
