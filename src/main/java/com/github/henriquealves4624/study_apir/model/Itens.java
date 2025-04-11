@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Itens {
@@ -13,49 +14,47 @@ public class Itens {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Long pedido_id;
-    private Long produto_id;
-    private Long quantidade;
+
+    @ManyToOne
+    private Pedido pedido;
+
+    @ManyToOne
+    private Product produto;
+
+    private BigDecimal quantidade;
     private BigDecimal valor;
 
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
-
-    public Long getPedido_id() {
-        return pedido_id;
+    public Pedido getPedido() {
+        return pedido;
     }
-
-    public void setPedido_id(Long pedido_id) {
-        this.pedido_id = pedido_id;
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
     }
-
-    public Long getProduto_id() {
-        return produto_id;
+    public Product getProduto() {
+        return produto;
     }
-
-    public void setProduto_id(Long produto_id) {
-        this.produto_id = produto_id;
+    public void setProduto(Product produto) {
+        this.produto = produto;
     }
-
-    public Long getQuantidade() {
+    public BigDecimal getQuantidade() {
         return quantidade;
     }
-
-    public void setQuantidade(Long quantidade) {
+    public void setQuantidade(BigDecimal quantidade) {
         this.quantidade = quantidade;
     }
-
     public BigDecimal getValor() {
         return valor;
     }
-
     public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
+
+    
 
 }

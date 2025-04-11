@@ -2,43 +2,29 @@ package com.github.henriquealves4624.study_apir.dto;
 
 import java.math.BigDecimal;
 
-public class ItensResponse {
-    
-    private Long id;
-    private String produto_nome;
+public class ItemRequestCreate {   
+     
+    private Long produto_id;
     private BigDecimal valor;
     private BigDecimal quantidade;
-
-    public Long getId() {
-        return id;
+ 
+    public Long getProduto_id() {
+        return produto_id;
     }
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setProduto_id(Long produto_id) {
+        this.produto_id = produto_id;
     }
-
     public BigDecimal getValor() {
         return valor;
     }
-
     public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
-
-    public String getProduto_nome() {
-        return produto_nome;
-    }
-
-    public void setProduto_nome(String produto_nome) {
-        this.produto_nome = produto_nome;
-    }
-
     public BigDecimal getQuantidade() {
         return quantidade;
     }
-
     public void setQuantidade(BigDecimal quantidade) {
         this.quantidade = quantidade;
     }
-
+ 
 }

@@ -1,26 +1,22 @@
 package com.github.henriquealves4624.study_apir.dto;
 
 
+import java.util.List;
+
 import com.github.henriquealves4624.study_apir.model.Pedido;
 
 public class PedidoRequestCreate {
  
-    private String status;
+    // private List<ItensRequestCreate> items;
 
-    public Pedido toModel() {
+    // public List<ItensRequestCreate> getItems() {
+    //     return items;
+    // }
 
-        Pedido pedido = new Pedido();
-        pedido.setStatus(this.status);
-        return pedido;
+    // public void setItems(List<ItensRequestCreate> items) {
+    //     this.items = items;
+    // }
 
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
+    
 
 }

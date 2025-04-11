@@ -1,16 +1,12 @@
 package com.github.henriquealves4624.study_apir.dto;
 
-import com.github.henriquealves4624.study_apir.model.Pedido;
+import java.util.List;
 
 public class PedidoResponse {
+
     private Long id;
     private String status;
-
-    public PedidoResponse toDto(Pedido pedido) {
-        this.setId(pedido.getId());
-        this.setStatus(pedido.getStatus());
-        return this;
-    }
+    private List<ItensResponse> items;
 
     public Long getId() {
         return id;
@@ -26,6 +22,14 @@ public class PedidoResponse {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public List<ItensResponse> getItems() {
+        return items;
+    }
+
+    public void setItems(List<ItensResponse> items) {
+        this.items = items;
     }
 
 }
