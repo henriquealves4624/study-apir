@@ -1,24 +1,23 @@
 package com.github.henriquealves4624.study_apir.dto;
 
 import com.github.henriquealves4624.study_apir.model.Pedido;
+import com.github.henriquealves4624.study_apir.model.Product;
 
 public class PedidoRequestUpdate {
 
-    private String status;
+    private BigDecimal valor;
 
-    public Pedido toModel(Pedido pedido) {
-
-        pedido.setStatus(this.status);
-        return pedido;
-
+    public BigDecimal getValor() {
+        return valor;
     }
 
-    public String getStatus() {
-        return status;
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public Product toModel(Product product) {
+        product.setValor(this.valor);
+        return product;
     }
-    
+
 }

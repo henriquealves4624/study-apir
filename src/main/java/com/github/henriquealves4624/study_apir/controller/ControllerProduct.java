@@ -31,7 +31,10 @@ public class ControllerProduct {
             @RequestBody ProductRequestCreate dto) {
 
         return ResponseEntity.status(201).body(
-                new ProductResponse().toDto(productService.createProduct(dto)));
+            new ProductResponse().toDto(
+                productService.createProduct(dto)
+            )
+        );
     }
 
     @DeleteMapping("/{id}")

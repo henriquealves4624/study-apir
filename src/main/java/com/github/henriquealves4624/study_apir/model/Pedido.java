@@ -15,33 +15,28 @@ public class Pedido {
     private Long id;
     private String status;
 
-    @OneToMany
-    private List <Itens> items;
+    @OneToMany(mappedBy = "pedido", 
+            cascade = CascadeType.ALL, 
+            orphanRemoval = true)    
+    private List<Itens> items;
 
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
-
     public String getStatus() {
         return status;
     }
-
     public void setStatus(String status) {
         this.status = status;
     }
-
     public List<Itens> getItems() {
         return items;
     }
-
     public void setItems(List<Itens> items) {
         this.items = items;
-    }  
-
+    }
     
-
 }

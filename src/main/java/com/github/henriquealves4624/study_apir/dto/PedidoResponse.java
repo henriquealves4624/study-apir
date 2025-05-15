@@ -8,6 +8,19 @@ public class PedidoResponse {
     private String status;
     private List<ItensResponse> items;
 
+    public PedidoResponse toDto(Pedido pedido) {
+        
+        this.setId(pedido.getId());
+        this.setStatus(pedido.getStatus());
+
+        List<ItensResponse> items = pedido.getItems()
+        .stream()
+        .map(item -> new ItensResponse().toDto(item)).collect(Collectors.toList());
+
+        this.setItems(items);
+        return this;
+    }
+
     public Long getId() {
         return id;
     }

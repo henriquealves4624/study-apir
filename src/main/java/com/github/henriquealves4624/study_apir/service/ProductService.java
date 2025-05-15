@@ -13,7 +13,7 @@ import com.github.henriquealves4624.study_apir.repository.ProductRepository;
 
 @Service
 public class ProductService {
-
+    
     @Autowired
     private ProductRepository productRepository;
 
@@ -21,57 +21,27 @@ public class ProductService {
         return productRepository.save(dto.toModel());
     }
 
-    public Optional<Product> getProductById(Long id) {
+    public Optional<Product> updateProduct(
+            Long id, ProductRequestCreate dto) {
 
-        // Antes estava assim:
-        // return products.stream()
-        // .filter(p -> p.getId().equals(id))
-        // .findFirst();
+        return productRepository.findById(id)
+            .map(p -> productRepository.save(dto.toModel(p)));
+    }
 
+    public Optional<Product> getProductById(Long id) {        
         return productRepository.findById(id);
-
     }
 
     public List<Product> getAll() {
         return productRepository.findAll();
     }
 
-    public Optional<Product> updateProduct(
-            Long id, ProductRequestUpdate dto) {
-
-        // Antes era assim:
-        // return products.stream()
-        // .filter(p -> p.getId().equals(id))
-        // .findFirst()
-        // .map(p -> {
-        // p.setValor(dto.getValor());
-        // return p;
-        // }
-        // );
-
-        return productRepository.findById(id)
-                .map(p -> productRepository.save(dto.toModel(p)));
-
-    }
-
-    public boolean deleteProduct(Long id) {
-        // Antes era assim:
-        // return products.removeIf(p -> p.getId().equals(id));
-
-        // Depois ficou assim:
-        // Optional<Product> opt = productRepository.findById(id);
-        // if (opt.isPresent()) {
-        // productRepository.deleteById(id);
-        // return true;
-        // }
-        // return false;
-
+    public boolean deleteProduct(Long id) { 
         if (productRepository.existsById(id)) {
             productRepository.deleteById(id);
             return true;
         }
 
-        return false;
-
+        return false;     
     }
 }
